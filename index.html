@@ -7,7 +7,6 @@
     <meta name="description" content="This page show you the covid 19 global stats" />
     <meta name="robots" content="index,follow" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./icomoon/style.css">
     <title>Covid 19 Stats</title>
 </head>
 
@@ -16,16 +15,18 @@
         <figure class="container-logo">
             <img class="logo" src="img/covid19.png" alt="Covid19 Logo">
         </figure>
-        <form action="">
-            <input class="inputText" type="text" name="" id="inputCountry" placeholder="Search by Country">
-            <a href="" class="inputButton icon-search"></a>
-        </form>
+        <form autocomplete="off" action="">
+            <div class="autocomplete">
+              <input id="myInput" type="text" name="myCountry" placeholder="Search by country">
+            </div>
+            <input type="submit">
+          </form>
         <div class="container-gitLogo">
             <a href=""><img class="img-github" src="img/github.png" alt="github Logo"></a>
         </div>
     </header>
     <main>
-        <h1>Covid-19 Stats of </h1><span id="main-span-LabelText"></span>
+        <h1>Covid-19 stats</h1><span id="main-span-LabelText"></span>
         <table>
             <tr>
               <th>Name</th>
@@ -35,8 +36,8 @@
               <th>New Deaths last 24 hours</th>
             </tr>
             <tr>
-              <td>1</td>
-              <td>1</td>
+              <td>1asdsdfasdfasfsd</td>
+              <td>134343434343443</td>
               <td>1</td>
               <td>1</td>
               <td>1</td>
@@ -57,9 +58,7 @@
             </tr>
           </table>
     </main>
-    <footer>
-
-    </footer>
+    <script type="module" src="assets/autocomplete.js"></script>
 </body>
 
 </html>
