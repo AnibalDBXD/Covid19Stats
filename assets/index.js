@@ -126,7 +126,7 @@ function autocomplete(inp, arr) {
   });
 }
 
-function setInformationOnHTML(content) {
+function setInformationOnHTML(content, light) {
   let name;
   let tagTR = document.createElement('tr');
   let tagTD_Name = document.createElement('td');
@@ -146,6 +146,14 @@ function setInformationOnHTML(content) {
   const newDeaths = document.createTextNode(content.NewDeaths);
   const recovered = document.createTextNode(content.TotalRecovered);
 
+  if (light) tagTD_Name.classList.add('grey')
+  if (light) tagTD_Cases.classList.add('grey')
+  if (light) tagTD_NewCases.classList.add('grey')
+  if (light) tagTD_Deaths.classList.add('grey')
+  if (light) tagTD_NewDeaths.classList.add('grey')
+  if (light) tagTD_Recovered.classList.add('grey')
+
+
   tagTD_Name.appendChild(name);
   tagTD_Cases.appendChild(cases);
   tagTD_NewCases.appendChild(newCases);
@@ -163,9 +171,15 @@ function setInformationOnHTML(content) {
   document.getElementById('table').appendChild(tagTR);
 }
 getData().then((result) => {
+  let backgroundLight = true;
   setInformationOnHTML(result.Global);
   for (let i = 0; i < result.Countries.length; i++) {
-    setInformationOnHTML(result.Countries[i])
+    setInformationOnHTML(result.Countries[i],backgroundLight)
+    if(backgroundLight){
+      backgroundLight = false;
+    }else{
+      backgroundLight = true;
+    }
   }
 })
 

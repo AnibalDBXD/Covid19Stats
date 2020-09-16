@@ -127,7 +127,8 @@ table{
 }
 
 th{
-    background-color: var(--quaternary-color);
+    background-color: var(--tertiary-color);
+    color: white;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     margin: 0 auto;
@@ -143,4 +144,9 @@ td{
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     padding: 2px;
+    background-color: white;
+}
+
+.grey{
+    background-color: gainsboro;
 }
