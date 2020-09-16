@@ -130,6 +130,7 @@ th{
     background-color: var(--quaternary-color);
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    position: absolute;
 }
 
 td{
