@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Covid 19 Stats</title>
 </head>
-
 <body>
     <header>
         <figure class="container-logo">
@@ -19,7 +18,7 @@
             <div class="autocomplete">
               <input id="myInput" type="text" name="myCountry" placeholder="Search by country">
             </div>
-            <input type="submit">
+            <input id="searchButton" type="button" value="Search">
           </form>
         <div class="container-gitLogo">
             <a href=""><img class="img-github" src="img/github.png" alt="github Logo"></a>
@@ -61,14 +60,14 @@
             y = rows[i + 1].getElementsByTagName("td")[n];
             //check if the two rows should switch place:
             if(dir == 'asc'){
-              if (Number(x.innerHTML) > Number(y.innerHTML)) {
+              if (Number(x.innerHTML) > Number(y.innerHTML) || x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
               //if so, mark as a switch and break the loop:
               shouldSwitch = true;
               break;
               }
             }
             else if(dir == 'desc'){
-              if (Number(x.innerHTML) < Number(y.innerHTML)) {
+              if (Number(x.innerHTML) < Number(y.innerHTML) || x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
                 //if so, mark as a switch and break the loop:
                 shouldSwitch = true;
                 break;

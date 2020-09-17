@@ -1,9 +1,21 @@
 "use strict";
 
+const buttonCountry = document.getElementById ('searchButton');
+const inputCountry = document.getElementById('myInput');
+const table = document.getElementById('table');
 const requestOptions = {
   method: 'GET',
   redirect: 'follow'
 };
+
+buttonCountry.addEventListener('click', () => {
+  const selectCountry = inputCountry.value;
+  const rowToScrollTo = document.getElementById(selectCountry);
+  rowToScrollTo.classList.add('focus');
+  const DOM = document.getElementsByTagName('html');
+  DOM[0].scrollTop = rowToScrollTo.offsetTop;
+});
+
 
 async function getNameCountry() {
   let countryList = [];
@@ -136,9 +148,11 @@ function setInformationOnHTML(content) {
   let tagTD_Recovered = document.createElement('td');
   if(content.Country){
     name = document.createTextNode(content.Country);
+    tagTD_Name.id = content.Country;
   }else{
     name = document.createTextNode("Global");
   }
+
   const cases = document.createTextNode(content.TotalConfirmed);
   const newCases = document.createTextNode(content.NewConfirmed);
   const deaths = document.createTextNode(content.TotalDeaths);
@@ -159,7 +173,7 @@ function setInformationOnHTML(content) {
   tagTR.appendChild(tagTD_NewDeaths);
   tagTR.appendChild(tagTD_Recovered);
 
-  document.getElementById('table').appendChild(tagTR);
+  table.appendChild(tagTR);
 }
 
 getData().then((result) => {
@@ -171,7 +185,7 @@ getData().then((result) => {
 
 
 getNameCountry().then((result) =>{
-    autocomplete(document.getElementById('myInput'), result)
+    autocomplete(inputCountry, result)
 });
 
 
