@@ -181,6 +181,12 @@ getData().then((result) => {
   for (let i = 0; i < result.Countries.length; i++) {
     setInformationOnHTML(result.Countries[i])
   }
+}).catch(() =>{
+  debugger
+  const title = document.getElementsByClassName('title');
+  title[0].classList.add('hide')
+  const caching = document.getElementsByClassName('chaching');
+  caching[0].classList.remove('hide')
 })
 
 
