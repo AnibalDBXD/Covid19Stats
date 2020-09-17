@@ -2,111 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This page show you the covid 19 global stats" />
-    <meta name="robots" content="index,follow" />
-    <title>Covid 19 Stats</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/table.css" media="screen and (min-width: 600px)">
-    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This page show you the covid 19 global stats" />
+  <meta name="robots" content="index,follow" />
+  <title>Covid 19 Stats</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/table.css" media="screen and (min-width: 600px)">
+  <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)">
 </head>
+
 <body>
-    <header>
-        <figure class="container-logo">
-            <img class="logo" src="img/covid19.png" alt="Covid19 Logo">
-        </figure>
-        <form autocomplete="off" action="">
-            <div class="autocomplete">
-              <input id="myInput" type="text" name="myCountry" placeholder="Search by country">
-            </div>
-            <input id="searchButton" type="button" value="Search">
-          </form>
-        <div class="container-gitLogo">
-            <a href="https://github.com/AnibalDBXD/Covid19Stats/"><img class="img-github" src="img/github.png" alt="github Logo"></a>
-        </div>
-    </header>
-    <main>
-        <h1 class="title">Covid-19 stats</h1>
-        <h1 class="chaching hide">Caching in progress, comeback later... 😰</h1>
-        <table id="table">
-            <tr>
-              <th onclick="sortTable(0)">Name</th>
-              <th onclick="sortTable(1)">Total Cases</th>
-              <th onclick="sortTable(2)">New Cases last 24 hours</th>
-              <th onclick="sortTable(3)">Total Deaths</th>
-              <th onclick="sortTable(4)">New Deaths last 24 hours</th>
-              <th onclick="sortTable(5)">Recovered</th>
-            </tr>
-          </table>
-    </main>
-    <footer>
-        <ul>
-          <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">More information</a></li>
-          <li><a href="https://covid19api.com/">Api used</a></li>
-        </ul>
-        <ul>
-          <li><a href="https://github.com/AnibalDBXD/Covid19Stats/">Repository</a></li>
-          <li><a href="https://twitter.com/AnibalOlivares_">Twitter</a></li>
-          <li><a href="https://github.com/AnibalDBXD">github</a></li>
-        </ul>
-    </footer>
-    <script>
-      function sortTable(n) {
-        let table, rows, switching, i, x, y, shouldSwitch,switchcount = 0;
-        dir = "asc";
-        table = document.getElementById("table");
-        switching = true;
-        /*Make a loop that will continue until
-        no switching has been done:*/
-        while (switching) {
-          //start by saying: no switching is done:
-          switching = false;
-          rows = table.rows;
-          /*Loop through all table rows (except the
-          first, which contains table headers):*/
-          for (i = 1; i < (rows.length - 1); i++) {
-            //start by saying there should be no switching:
-            shouldSwitch = false;
-            /*Get the two elements you want to compare,
-            one from current row and one from the next:*/
-            x = rows[i].getElementsByTagName("td")[n];
-            y = rows[i + 1].getElementsByTagName("td")[n];
-            //check if the two rows should switch place:
-            if(dir == 'asc'){
-              if (Number(x.innerHTML) > Number(y.innerHTML) || x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              //if so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-              }
-            }
-            else if(dir == 'desc'){
-              if (Number(x.innerHTML) < Number(y.innerHTML) || x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                //if so, mark as a switch and break the loop:
-                shouldSwitch = true;
-                break;
-              }
-            }
-          }
-          if (shouldSwitch) {
-            /*If a switch has been marked, make the switch
-            and mark that a switch has been done:*/
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            //Each time a switch is done, increase this count by 1:
-            switchcount ++;
-          } else {
-            /*If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again.*/
-            if (switchcount == 0 && dir == "asc") {
-            dir = "desc";
-            switching = true;
-            }
-          }
-        }
-      }
-    </script>
-    <script type="module" src="./assets/index.js"></script>
+  <header>
+    <figure class="container-logo">
+      <img class="logo" src="img/covid19.png" alt="Covid19 Logo">
+    </figure>
+    <form autocomplete="off" action="">
+      <div class="autocomplete">
+        <input id="myInput" type="text" name="myCountry" placeholder="Search by country">
+      </div>
+      <input id="searchButton" type="button" value="Search">
+    </form>
+    <div class="container-gitLogo">
+      <a href="https://github.com/AnibalDBXD/Covid19Stats/"><img class="img-github" src="img/github.png"
+          alt="github Logo"></a>
+    </div>
+  </header>
+  <main>
+    <h1 class="title">Covid-19 stats</h1>
+    <h1 class="chaching hide">Caching in progress, comeback later... 😰</h1>
+    <table id="table">
+      <tr>
+        <th>Name</th>
+        <th>Total Cases</th>
+        <th>New Cases last 24 hours</th>
+        <th>Total Deaths</th>
+        <th>New Deaths last 24 hours</th>
+        <th>Recovered</th>
+      </tr>
+    </table>
+  </main>
+  <footer>
+    <ul>
+      <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">More information</a></li>
+      <li><a href="https://covid19api.com/">Api used</a></li>
+    </ul>
+    <ul>
+      <li><a href="https://github.com/AnibalDBXD/Covid19Stats/">Repository</a></li>
+      <li><a href="https://twitter.com/AnibalOlivares_">Twitter</a></li>
+      <li><a href="https://github.com/AnibalDBXD">github</a></li>
+    </ul>
+  </footer>
+  <script>
+    //Sort Table
+    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+    // do the work...
+    document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr));
+    })));
+  </script>
+  <script type="module" src="./assets/index.js"></script>
 </body>
 
 </html>
